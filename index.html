@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransCoope - Transcripción Musical con IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-music"></i>
+                    <span>TransCoope</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link active">Inicio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Transcribir</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Comunidad</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Proyectos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Tendencias</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Recomendaciones</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Iniciar Sesión</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link register-btn">Registrarse</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transcribe música en partituras reales con IA</h1>
+                <p class="hero-description">Sube tu audio o pega un enlace y nuestra inteligencia artificial creará partituras profesionales separadas por instrumentos.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Comenzar ahora</button>
+                    <button class="btn btn-secondary">Ver demo</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="music-visualizer">
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                </div>
+                <div class="sheet-music-preview">
+                    <div class="staff">
+                        <div class="staff-line"></div>
+                        <div class="staff-line"></div>
+                        <div class="staff-line"></div>
+                        <div class="staff-line"></div>
+                        <div class="staff-line"></div>
+                        <div class="notes">
+                            <div class="note"></div>
+                            <div class="note"></div>
+                            <div class="note"></div>
+                            <div class="note"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Transcripción -->
+    <section class="transcription-section">
+        <div class="container">
+            <h2 class="section-title">Transcribe tu música</h2>
+            <p class="section-subtitle">Obtén partituras profesionales de cualquier canción</p>
+            
+            <div class="transcription-options">
+                <div class="option-card" id="link-option">
+                    <div class="option-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Pegar enlace</h3>
+                    <p>Transcribe desde YouTube, Spotify o cualquier plataforma</p>
+                    <div class="link-input-container hidden">
+                        <input type="text" placeholder="Pega el enlace aquí..." class="link-input">
+                        <button class="btn btn-primary">Transcribir</button>
+                    </div>
+                </div>
+                
+                <div class="option-card" id="upload-option">
+                    <div class="option-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Subir archivo</h3>
+                    <p>Sube archivos MP3, WAV, FLAC u otros formatos</p>
+                    <div class="upload-area hidden" id="upload-area">
+                        <i class="fas fa-file-audio"></i>
+                        <p>Arrastra tu archivo aquí o <span class="browse-link">explora</span></p>
+                        <input type="file" id="file-input" accept="audio/*" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-container hidden" id="progress-container">
+                <h3>Procesando tu audio...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Analizando audio...</p>
+            </div>
+            
+            <div class="results-container hidden" id="results-container">
+                <h3>¡Transcripción completada!</h3>
+                <div class="instruments-list">
+                    <div class="instrument-card">
+                        <div class="instrument-icon">
+                            <i class="fas fa-guitar"></i>
+                        </div>
+                        <h4>Guitarra</h4>
+                        <button class="btn btn-outline">Ver partitura</button>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-icon">
+                            <i class="fas fa-drum"></i>
+                        </div>
+                        <h4>Batería</h4>
+                        <button class="btn btn-outline">Ver partitura</button>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h4>Bajo</h4>
+                        <button class="btn btn-outline">Ver partitura</button>
+                    </div>
+                    <div class="instrument-card">
+                        <div class="instrument-icon">
+                            <i class="fas fa-piano-keyboard"></i>
+                        </div>
+                        <h4>Piano</h4>
+                        <button class="btn btn-outline">Ver partitura</button>
+                    </div>
+                </div>
+                <div class="download-actions">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Descargar PDF completo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir TransCoope?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>IA Avanzada</h3>
+                    <p>Nuestra inteligencia artificial detecta y separa instrumentos con precisión milimétrica.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Partituras Reales</h3>
+                    <p>Genera partituras profesionales listas para imprimir o compartir.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidad Musical</h3>
+                    <p>Comparte, colabora y descubre música con otros músicos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Seguimiento de Progreso</h3>
+                    <p>Analiza tus transcripciones y mejora tus habilidades musicales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TransCoope</h3>
+                    <p>La plataforma líder en transcripción musical con inteligencia artificial.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Transcribir</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Proyectos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Términos de uso</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TransCoope. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
